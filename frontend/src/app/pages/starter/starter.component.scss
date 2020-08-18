@@ -1,0 +1,37 @@
+/*!
+ * Copyright (c) Akveo 2019. All Rights Reserved.
+ * Licensed under the Single Application / Multi Application License.
+ * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+ */
+
+.starter-title {
+  text-align: center;
+}
+.bgColorWhite{
+  background-color: white;
+}
+.marginLeftTwo{
+  margin-left:2%;
+}
+.marginTopTwo{
+  margin-top:2%;
+}
+.btnBgColor{
+  background-color: #d5d5d5;
+}
+.height100{
+  height: 100%;
+}
+.marginBottomTwo{
+  margin-bottom:2%;
+}
+@media only screen and (max-width: 992px) { 
+.height100{
+  height: 100%;
+}
+}
+@media only screen and (min-width:290px) and (max-width: 720px){
+  .marginTopTwoInMob{
+    margin-top: 2%;
+  }
+}

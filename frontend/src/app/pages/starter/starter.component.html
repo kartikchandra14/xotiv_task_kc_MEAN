@@ -1,0 +1,84 @@
+<!--
+  ~ Copyright (c) Akveo 2019. All Rights Reserved.
+  ~ Licensed under the Single Application / Multi Application License.
+  ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+  -->
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 bgColorWhite height400">
+      <canvas id="myLine"></canvas>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 marginTopTwoInMob marginBottomTwo">
+    <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12 bgColorWhite height100 ">
+      <canvas id="doughnut"></canvas>
+    </div>
+  </div>
+</div>
+<div class="row marginTopTwo">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 bgColorWhite">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Traffic</th>
+          <th></th>
+          <th></th>
+          <th>
+            <!-- <button class="btn btn-default">week</button> -->
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle btnBgColor" type="button" data-toggle="dropdown">week
+              <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Demo</a></li>
+                <li><a href="#">Demo</a></li>
+              </ul>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>100</td>
+          <td><span class="caret"></span>
+            <nb-icon icon="arrow-up" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>100</td>
+          <td>Mon<nb-icon icon="flip" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon> Tue</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>110</td>
+          <td><nb-icon icon="arrow-up" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>110</td>
+          <td>Mon <nb-icon icon="flip" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>Tue</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>120</td>
+          <td><nb-icon icon="arrow-up" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>10</td>
+          <td>Mon <nb-icon icon="flip" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>Tue</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>130</td>
+          <td>
+            <nb-icon icon="arrow-up" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>10</td>
+          <td>Mon<nb-icon icon="flip" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon> Tue</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>140</td>
+          <td>
+            <nb-icon icon="arrow-up" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>
+            10
+          </td>
+          <td>Mon<nb-icon icon="flip" [options]="{ animation: { type: 'zoom' } }" status="primary"></nb-icon>Tue</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 marginTopTwoInMob">
+    <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12 bgColorWhite height100">
+        <canvas id="myBarChart"></canvas>
+    </div>
+  </div>
+</div>
+

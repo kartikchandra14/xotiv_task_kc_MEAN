@@ -1,0 +1,36 @@
+/frontend/node_modules
+/frontend/package-lock.json
+/backend/node_modules
+/backend/package-lock.json
+/.history
+/.vscode-history
+
+# NPM packages folder.
+node_modules
+
+# Build files
+dist/
+
+# lock files
+yarn.lock
+package-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# node-waf configuration
+.lock-wscript
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Jest Coverage
+coverage
+
+.history/
+You can find more on git documentation gitignore
