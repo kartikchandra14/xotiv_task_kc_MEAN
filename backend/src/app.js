@@ -21,6 +21,7 @@ const authController = require('./api/common/auth/authController');
 const userController = require('./api/common/user/userController');
 const userPhotoController = require('./api/common/user/userPhotoController');
 const settingsController = require('./api/common/settings/settingsController');
+const contactsController = require('./api/common/contacts/contactsController');
 
 const SeedService = require('./api/seedService');
 const seedService = new SeedService();
@@ -80,6 +81,7 @@ app.use(`${root}/users/:userId/photo`, userPhotoController);
 
 app.use(`${root}/users`, auth, userController);
 app.use(`${root}/settings`, auth, settingsController);
+app.use(`${root}/contacts`, auth, contactsController);
 
 
 app.use(logErrors);

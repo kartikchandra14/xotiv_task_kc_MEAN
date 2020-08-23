@@ -1,0 +1,29 @@
+GET http://localhost:3001/api/users/current
+Accept: application/json, text/plain, */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzg0NjZmZDQ4M2ZhMWFhOGJjN2U4MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTk4MDg2MDYzLCJleHAiOjE1OTgwODk2NjN9.LRAOUDjXOWVFcB8Z9hvU292NDkqu4_ZyHEJ5FnFokCo
+
+###
+GET http://localhost:3001/api/contacts/getContact
+Accept: application/json, text/plain, */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzg0NjZmZDQ4M2ZhMWFhOGJjN2U4MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTk4MDg2MDYzLCJleHAiOjE1OTgwODk2NjN9.LRAOUDjXOWVFcB8Z9hvU292NDkqu4_ZyHEJ5FnFokCo
+
+###
+PUT http://localhost:3001/api/contacts/putContact/1
+Accept: application/json, text/plain, */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzg0NjZmZDQ4M2ZhMWFhOGJjN2U4MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTk4MDg5OTczLCJleHAiOjE1OTgwOTM1NzN9.N2b4FfX1jHyZ_pDWMJ7X-IB6B4JtOJh2JfQU45I0Qcc
+
+{
+    "name":"third"
+}
+
+###
+POST http://localhost:3001/api/contacts/postContact
+Accept: application/json, text/plain, */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzg0NjZmZDQ4M2ZhMWFhOGJjN2U4MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTk4MTI2OTA0LCJleHAiOjE1OTgxMzA1MDR9.ynVEBl_X7dYV_jzA6szoGEiNCM90GPhENOSYh86IuLs
+
+{
+    "user_id":10,
+    "name":"ten",
+    "roll":10,
+    "course":"Btech"
+}
