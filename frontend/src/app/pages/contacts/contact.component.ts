@@ -17,7 +17,7 @@ import { ContactDataService } from './contact-data.service';
   })
   export class ContactMenuComponent implements OnInit {
     constructor(private contactDataService: ContactDataService) {}
-    source: LocalDataSource; // add a property to the component
+    source: any; // add a property to the component
     coloumns = {user_id: {
       title: 'ID',
       filter: false,
@@ -44,23 +44,31 @@ import { ContactDataService } from './contact-data.service';
         // addButtonContent: 'customFontSize',
         confirmCreate: true,
       },
+      edit: {
+        confirmSave: true,
+      },
+      delete: {
+        confirmDelete: true,
+      },
       // mode: 'inline',
-      confirmCreate : true,
-      confirmSave : true,
-      confirmDelete : true,
+      // delete: {
+      //   confirmDelete: true,
+      // },
     };
 
     data = [];
 ngOnInit(): void {
-  this.source = new LocalDataSource(this.data); // create the source
+  // this.source = new LocalDataSource(this.data); // create the source
   // call the getAPi for table
   this.getContactsData();
 }
-
+// read or get data from API
 getContactsData(): void {
   this.contactDataService.getContacts().subscribe((resContactsData: any) => {
     if (resContactsData) {
       console.log('rescontactData', resContactsData);
+      this.source = resContactsData;
+      // this.data = resContactsData;
     }
   });
 }
@@ -113,8 +121,17 @@ createConfirmCall(event): void {
       if (res.message === 'already exist in db') {
         alert('already exist try with some other user id');
       } else if (res.field === 'created' && res.code === 201) {
-        this.source.prepend(event?.newData);
+        const len = this.source.length;
+        this.source = [...this.source , ...[event.newData]];
+        // this.data.push(event?.newData);
+        // this.source.push(event?.newData);
+        this.source = this.source.map((obj, index) => {
+          console.log('len , index', len, index);
+          if (len === index ) { return {...obj, ...event?.newData};
+        } else { return obj; }
+        });
         alert('created');
+        // document.getElementsByClassName('ng2-smart-action ng2-smart-action-add-cancel').addEventListener('click',()=>{})
       }
     } else {
       alert('not created');
@@ -124,11 +141,56 @@ createConfirmCall(event): void {
     alert('please fill details completely');
   }
 }
-
+// update data
 editConfirmCall(event): void {
-  console.log('event_editConfirmCall', event);
+  console.log('event_editConfirmCall', event, event?.newData);
+  if ( event?.newData?.user_id && event?.newData?.roll &&  event?.newData?.course && event?.newData?.name) {
+  const sendObj = {
+    user_id: parseInt(event?.newData?.user_id, 10),
+    roll : parseInt(event?.newData?.roll, 10),
+    course : event?.newData?.course,
+      name: event?.newData?.name,
+  };
+  this.contactDataService.putContact(sendObj, parseInt(event?.newData?.user_id, 10) ).subscribe((res: any) => {
+    if (res) {
+      console.log('responseOfUpdate', res);
+      if (res.field === 'updated' && res.code === 204) {
+        // this.source.prepend(event?.newData);
+        this.source = this.source.map((obj) => {
+          if (obj.user_id === event?.newData?.user_id ) { return event?.newData; } else { return obj; }
+        });
+        alert('updated');
+      }
+    } else {
+      alert('not updated' + res.message);
+    }
+  });
+  } else {
+    alert('please fill details completely');
+  }
 }
+// delete
 deleteConfirmCall(event): void {
-  console.log('event_deleteConfirmCall', event);
+  console.log('event_deleteConfirmCall', event, event?.data, this.source);
+  // return;
+  if ( event?.data?.user_id ) {
+  this.contactDataService.deleteContact( parseInt(event?.data?.user_id, 10) ).subscribe((res: any) => {
+    if (res) {
+      console.log('responseOfDelete', res);
+      if (res.field === 'deleted' && res.code === 202) {
+        // this.source.prepend(event?.newData);
+        // this.source.push(event?.newData);
+        this.source = this.source.filter((obj ): boolean => {
+          return obj?.user_id !== event?.data?.user_id;
+        } );
+        alert('deleted');
+      }
+    } else {
+      alert('not deleted' + res.message);
+    }
+  });
+  } else {
+    alert('please provide id');
+  }
 }
  }

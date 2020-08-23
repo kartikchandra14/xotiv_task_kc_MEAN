@@ -74,7 +74,7 @@ router.get('/getContact', (req, res) => {
                     const errorData = {
                         error: {
                           code: 409,
-                          field: 'email not exist',
+                          message: 'id not exist please dont change user id',
                           type: 'exist',
                         },
                       };
