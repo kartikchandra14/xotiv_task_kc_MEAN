@@ -48,7 +48,7 @@ export class NgxLoginComponent implements OnInit {
   constructor(protected service: NbAuthService,
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
-    protected themeService: NbThemeService,
+    // protected themeService: NbThemeService,
     private fb: FormBuilder,
     protected router: Router,
     protected initUserService: InitUserService) { }
@@ -100,4 +100,5 @@ export class NgxLoginComponent implements OnInit {
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);
   }
+
 }
